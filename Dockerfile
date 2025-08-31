@@ -1,11 +1,19 @@
-FROM node:18-alpine
+# Use node to build React app
+FROM node:18 as build
 
 WORKDIR /app
 
-COPY package*.json ./
+COPY package.json package-lock.json ./
 RUN npm install
 
 COPY . .
 RUN npm run build
 
-CMD ["npm", "start"]
+# Use nginx for serving build
+FROM nginx:alpine
+
+COPY --from=build /app/build /usr/share/nginx/html
+
+EXPOSE 80
+
+CMD ["nginx", "-g", "daemon off;"]
