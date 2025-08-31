@@ -1,16 +1,34 @@
 import React from "react";
 
 const devOpsTools = [
-  { name: "Bitbucket", url: "https://bitbucket.org", icon: "🧰" },
-  { name: "Jenkins", url: "https://jenkins.io", icon: "🔧" },
-  { name: "ArgoCD", url: "https://argoproj.github.io/cd/", icon: "🚢" },
+  {
+    name: "Bitbucket",
+    url: "https://bitbucket.org",
+    icon: "https://bitbucket.org/favicon.ico",
+  },
+  {
+    name: "Jenkins",
+    url: "https://jenkins.io",
+    icon: "https://www.jenkins.io/favicon.ico",
+  },
+  {
+    name: "ArgoCD",
+    url: "https://argoproj.github.io/cd/",
+    icon: "https://raw.githubusercontent.com/argoproj/argo-cd/stable/docs/assets/favicon.ico",
+  },
 ];
+
+// sample counts - replace with your dynamic counts
+const openCount = 5;
+const closedCount = 2;
 
 export default function Home() {
   return (
     <div>
+      <h1 style={{ textAlign: "center" }}>DevOps Portal</h1>
+
       <h2>DevOps Tools</h2>
-      <div style={{ display: "flex", gap: 20 }}>
+      <div style={{ display: "flex", gap: 20, marginBottom: 40 }}>
         {devOpsTools.map((tool) => (
           <div
             key={tool.name}
@@ -21,12 +39,64 @@ export default function Home() {
               border: "1px solid #ccc",
               borderRadius: 5,
               textAlign: "center",
+              width: 100,
+              height: 100,
+              display: "flex",
+              flexDirection: "column",
+              justifyContent: "center",
+              alignItems: "center",
             }}
           >
-            <div style={{ fontSize: 40 }}>{tool.icon}</div>
+            <img
+              src={tool.icon}
+              alt={tool.name}
+              style={{ width: 32, height: 32, marginBottom: 10 }}
+            />
             <div>{tool.name}</div>
           </div>
         ))}
+      </div>
+
+      <h2>Service Requests</h2>
+      <div style={{ display: "flex", gap: 20 }}>
+        <div
+          onClick={() => alert("Navigate to Open Requests")}
+          style={{
+            cursor: "pointer",
+            padding: 20,
+            border: "1px solid #ccc",
+            borderRadius: 5,
+            textAlign: "center",
+            width: 100,
+            height: 100,
+            display: "flex",
+            flexDirection: "column",
+            justifyContent: "center",
+            alignItems: "center",
+          }}
+        >
+          <div>Open Requests</div>
+          <div style={{ fontWeight: "bold", marginTop: 4 }}>{openCount}</div>
+        </div>
+        <div
+          onClick={() => alert("Navigate to Closed Requests")}
+          style={{
+            cursor: "pointer",
+            padding: 20,
+            border: "1px solid #ccc",
+            borderRadius: 5,
+            textAlign: "center",
+            width: 100,
+            height: 100,
+            display: "flex",
+            flexDirection: "column",
+            justifyContent: "center",
+            alignItems: "center",
+          }}
+        >
+          <div>Closed Requests</div>
+          <div style={{ fontWeight: "bold", marginTop: 4 }}>{closedCount}</div>
+        </div>
       </div>
     </div>
   );
