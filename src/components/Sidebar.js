@@ -1,20 +1,24 @@
 import React, { useState } from "react";
 
+import bitbucketIcon from "../assets/icons/Bitbucket.png"; // adjust relative path if needed
+import jenkinsIcon from "../assets/icons/Jenkins.png";
+import argocdIcon from "../assets/icons/ArgoCD.png";
+
 const devOpsTools = [
   {
     name: "Bitbucket",
     url: "https://bitbucket.org",
-    icon: "https://bitbucket.org/favicon.ico",
+    icon: bitbucketIcon,
   },
   {
     name: "Jenkins",
     url: "https://jenkins.io",
-    icon: "https://www.jenkins.io/favicon.ico",
+    icon: jenkinsIcon,
   },
   {
     name: "ArgoCD",
     url: "https://argoproj.github.io/cd/",
-    icon: "https://raw.githubusercontent.com/argoproj/argo-cd/stable/docs/assets/favicon.ico",
+    icon: argocdIcon,
   },
 ];
 

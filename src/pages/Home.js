@@ -1,24 +1,29 @@
 import React from "react";
 
+// Import local PNG icons from your assets/icons folder
+import bitbucketIcon from "../assets/icons/Bitbucket.png";
+import jenkinsIcon from "../assets/icons/Jenkins.png";
+import argocdIcon from "../assets/icons/ArgoCD.png";
+
 const devOpsTools = [
   {
     name: "Bitbucket",
     url: "https://bitbucket.org",
-    icon: "https://bitbucket.org/favicon.ico",
+    icon: bitbucketIcon,
   },
   {
     name: "Jenkins",
     url: "https://jenkins.io",
-    icon: "https://www.jenkins.io/favicon.ico",
+    icon: jenkinsIcon,
   },
   {
     name: "ArgoCD",
     url: "https://argoproj.github.io/cd/",
-    icon: "https://raw.githubusercontent.com/argoproj/argo-cd/stable/docs/assets/favicon.ico",
+    icon: argocdIcon,
   },
 ];
 
-// sample counts - replace with your dynamic counts
+// Sample request counts - replace with your dynamic counts
 const openCount = 5;
 const closedCount = 2;
 
